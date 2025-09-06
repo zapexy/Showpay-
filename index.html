@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Token History</title>
+<style>
+  body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    background: #ffffff;
+    color: #0a0a0a;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .header .back {
+    margin-right: 10px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  .transaction {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .label {
+    font-size: 12px;
+    color: #8c8c8c;
+    margin-bottom: 4px;
+  }
+  .value {
+    font-size: 16px;
+    color: #1a1a1a;
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  .tag.green { background: #e9f9ef; color: #3b9950; }
+  .tag.red { background: #fdeaea; color: #c33b3b; }
+  .amount { font-weight: bold; font-size: 18px; margin: 6px 0; }
+  .editable {
+    cursor: pointer;
+  }
+  .chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #0099ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="back">&#8592;</div>
+    Token History
+  </div>  <div class="transaction">
+    <div class="label">Desc</div>
+    <div class="value editable">Payment 1 order rewards 10</div>
+    <div class="label">Time</div>
+    <div class="value editable">2025-09-01 00:50:49</div>
+  </div>  <div class="transaction">
+    <div class="tag green">Payment task reward</div>
+    <div class="label">Amount</div>
+    <div class="amount editable">40</div>
+    <div class="label">UTR</div>
+    <div class="value editable">101336927276</div>
+    <div class="label">Desc</div>
+    <div class="value editable">Payment task reward 101336927276</div>
+    <div class="label">Time</div>
+    <div class="value editable">2025-09-01 00:50:49</div>
+  </div>  <div class="transaction">
+    <div class="tag green">Payment task</div>
+    <div class="label">Amount</div>
+    <div class="amount editable">1000</div>
+    <div class="label">UTR</div>
+    <div class="value editable">101336927276</div>
+    <div class="label">Desc</div>
+    <div class="value editable">Payment task 101336927276</div>
+    <div class="label">Time</div>
+    <div class="value editable">2025-09-01 00:50:49</div>
+  </div>  <div class="transaction">
+    <div class="tag red">Receive</div>
+    <div class="label">Amount</div>
+    <div class="amount editable">200</div>
+    <div class="label">Upi</div>
+    <div class="value editable">9931071170@ikwik</div>
+    <div class="label">UTR</div>
+    <div class="value editable">689972317233</div>
+    <div class="label">Desc</div>
+    <div class="value editable">Receive DS0eashuy4pa deduct 200.0000000</div>
+    <div class="label">Time</div>
+    <div class="value editable">2025-09-01 00:36:20</div>
+  </div>  <div class="transaction">
+    <div class="tag red">Receive</div>
+    <div class="label">Amount</div>
+    <div class="amount editable">300</div>
+    <div class="label">Upi</div>
+    <div class="value editable">9931071170@ikwik</div>
+    <div class="label">UTR</div>
+    <div class="value editable">5409871752</div>
+    <div class="label">Desc</div>
+    <div class="value editable">Receive DS0eashuyfzx deduct 300.0000000</div>
+    <div class="label">Time</div>
+    <div class="value editable">2025-09-01 00:21:49</div>
+  </div>  <div class="chat-button">&#9679;</div><script>
+  document.querySelectorAll('.editable').forEach(el => {
+    el.addEventListener('dblclick', () => {
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = el.textContent;
+      input.style.width = '100%';
+      input.addEventListener('blur', () => {
+        el.textContent = input.value;
+        el.style.display = '';
+      });
+      el.style.display = 'none';
+      el.parentNode.insertBefore(input, el);
+      input.focus();
+    });
+  });
+</script></body>
+</html>
